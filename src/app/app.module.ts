@@ -12,6 +12,7 @@ import { routes } from './routes';
 import { HelpModule } from './modules/help/help.module';
 import { PreviewModule } from './modules/preview/preview.module';
 import { PageModule } from './modules/page/page.module';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { PageModule } from './modules/page/page.module';
     HttpClientModule,
     RouterModule.forRoot(routes),
     CookieModule.forRoot(),
+    MDBBootstrapModule.forRoot(),
     HelpModule,
     PreviewModule,
     PageModule
