@@ -2,8 +2,12 @@ import { Component, OnInit, OnDestroy, SimpleChanges } from '@angular/core';
 import { Context } from '../../prismic/context';
 import { PrismicService } from '../../prismic/prismic.service';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription, Observable } from 'rxjs';
 import PrismicDOM from 'prismic-dom';
+import {Subscription} from "rxjs/Subscription";
+import {Observable} from "rxjs/Observable";
+import "rxjs-compat/add/observable/fromPromise";
+import "rxjs-compat/add/operator/map";
+import "rxjs-compat/add/operator/mergeMap";
 
 @Component({
   selector: 'app-page',

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import Prismic from 'prismic-javascript';
 
 import { Context } from './context';
@@ -9,7 +9,7 @@ import { CONFIG } from '../../prismic-configuration';
 @Injectable()
 export class PrismicService {
 
-  constructor(private http: Http) {}
+  constructor(private http: HttpClient) {}
 
   buildContext() {
     const options = {};
@@ -28,10 +28,10 @@ export class PrismicService {
 
   validateOnboarding() {
     const infos = this.getRepositoryInfos();
-    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
     if(infos.isConfigured) {
-      this.http.post(`${infos.repoURL}/app/settings/onboarding/run`, null, headers)
+      this.http.post(`${infos.repoURL}/app/settings/onboarding/run`, null, {headers: headers})
       .subscribe(
         null,
         (err) => console.log(`Cannot access your repository, check your api endpoint: ${err}`)

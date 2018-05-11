@@ -26,7 +26,7 @@ export class PreviewComponent implements OnInit, OnDestroy {
     .map(params => params['token'])
     .flatMap(token => Observable.fromPromise(this.prismic.preview(token)))
     .subscribe((previewData: Preview) => {
-      this.cookieService.put(previewData.cookieName, previewData.token, PREVIEW_EXPIRES);
+      this.cookieService.put(previewData.cookieName, previewData.token, {expires:new Date(PREVIEW_EXPIRES)});
       this.router.navigateByUrl(previewData.redirectURL);
     });
   }
