@@ -1,0 +1,10 @@
+<div *ngIf="!pageContent">
+  <h2>Loading your page content</h2>
+</div>
+
+<div class="page-content" *ngIf="pageContent" [attr.data-wio-id]="pageContent.id">
+  {{pageContent | json}}
+  <img src="{{pageContent.data?.image?.url}}" />
+  <div class="title" [innerHTML]="PrismicDOM.RichText.asHtml(pageContent.data?.title, ctx.linkResolver)"></div>
+  <div [innerHTML]="PrismicDOM.RichText.asHtml(pageContent.data?.description, ctx.linkResolver)"></div>
+</div>
