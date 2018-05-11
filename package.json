@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod --base-href https://blog.roddet.com/roddet.com/",
+    "build": "ng build --prod --base-href https://blog.roddet.com/roddet.com/ -aot=false",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

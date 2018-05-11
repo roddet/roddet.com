@@ -8,14 +8,14 @@ import { HighlightJsService } from 'angular2-highlight-js';
   styleUrls: ['./help.component.css']
 })
 export class HelpComponent implements AfterViewInit {
-  repositoryInfos: Object;
+  repositoryInfos: any;
 
   constructor(private prismic: PrismicService, private el: ElementRef, private highlightService : HighlightJsService) {
     prismic.validateOnboarding();
     this.repositoryInfos = prismic.getRepositoryInfos();
   }
 
-  ngAfterViewInit() {        
+  ngAfterViewInit() {
     const codeElements = this.el.nativeElement.querySelectorAll('pre code');
     if(codeElements) {
       codeElements.forEach(code => {
